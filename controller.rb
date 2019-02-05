@@ -5,21 +5,9 @@ require_relative('./models/rock_paper_scissor.rb')
 also_reload'./models/*'
 
 
-get '/choose/:pick' do
-  game = Game.new(params[:pick])
-  @game = game.choose()
-  erb (:result)
-end
-
-get '/scissor/:pick' do
-  game = Game.new(params[:pick])
-  @game = game.returns_scissor
-  erb (:result)
-end
-
-get '/paper/:pick' do
-  game = Game.new(params[:pick])
-  @game = game.returns_paper
+get '/choose/:player1/:player2' do
+  game = Game.new(params[:player1], params[:player2])
+  @game = game.game()
   erb (:result)
 end
 

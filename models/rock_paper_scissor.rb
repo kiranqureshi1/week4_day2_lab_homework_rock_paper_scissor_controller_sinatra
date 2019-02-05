@@ -1,34 +1,17 @@
 class Game
 
-  def initialize(pick)
-    @pick = pick
+  def initialize(player1, player2)
+    @player1 = player1
+    @player2 = player2
   end
 
-  def choose
-    if @pick.include?("rock")
-      return "rock wins"
-    else
-      return "nothing"
+
+    def game
+      return "scissor" if @player1 == "rock" && @player2 =="scissor"
+      return "scissor" if @player1 == "paper" && @player2 =="scissor"
+      return "rock" if @player1 == "scissor" && @player2 =="rock"
+      return "rock" if @player1 == "paper" && @player2 =="rock"
+      return "paper" if @player1 == "scissor" && @player2 =="paper"
+      return "paper" if @player1 == "rock" && @player2 =="paper"
     end
-  end
-
-  def returns_scissor
-    if @pick.include?("scissor")
-      return "scissor wins"
-    else
-      return "nothing"
-    end
-  end
-
-    def returns_paper
-      if @pick.include?("paper")
-        return "paper wins"
-      else
-        return "nothing"
-      end
-    end
-
-
-
-
   end
